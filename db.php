@@ -1,10 +1,10 @@
 <?php
 $host = 'localhost';
-$db   = 'sistema_login';
+$dbname   = 'sistema_login';
 $user = 'root';  // Usuário do MySQL (normalmente é "root")
-$pass = '';      // Senha do MySQL (deixe vazio se não houver senha)
+$password = '';      // Senha do MySQL (deixe vazio se não houver senha)
 
-$dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
+$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -12,9 +12,9 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo 'Erro ao conectar com o banco de dados: ' . $e->getMessage();
-    exit;
+    die("Erro: Não foi possível conectar ao banco de dados. " . $e->getMessage());
 }
 ?>

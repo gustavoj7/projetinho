@@ -50,20 +50,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <script>
-    
+      // Função para buscar o endereço a partir do CEP
+      function buscarCEP() {
+            const cep = document.getElementById('cep').value.replace(/\D/g, '');
+            if (cep.length === 8) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!("erro" in data)) {
+                            document.getElementById('endereco').value = data.logradouro;
+                            document.getElementById('bairro').value = data.bairro;
+                        } else {
+                            alert("CEP não encontrado!");
+                        }
+                    })
+                    .catch(() => alert("Erro ao buscar o CEP!"));
+            }
+        }
 </script>
 <body>
     <div class="container">
-        <form action="cadastro.php" method="post"> 
-            <input type="text" name="nome" required placeholder="Nome"> <br>
-            <input type="email" name="email" required placeholder="Email"> <br>
-            <input type="password" name="senha" required placeholder="Senha"> <br>
-            <input type="text" name="cep" id="CEP" placeholder="CEP" required onblur="buscarCep()"> <br>
-            <input type="text" name="endereco" id="Endereco" placeholder="Endereço"> <br>
-            <input type="text" name="bairro" id="Bairro" placeholder="Bairro"> <br>
-            <input type="text" name="estado" id="estado" maxlength="2" required placeholder="Estado"> <br>
-            <input type="text" name="cidade" id="cidade" required placeholder="Cidade">  <br>
-            <input type="date" name="data_nascimento" id="data_nascimento">  <br>
+        <h2>Cadastro de Usuário</h2>
+        <form action="cadastro.php" method="POST"> 
+            <input type="text" name="nome" required placeholder="Nome"> 
+            <input type="email" name="email" required placeholder="Email"> 
+            <input type="password" name="senha" required placeholder="Senha"> 
+            <input type="text" name="cep" id="cep" placeholder="CEP" required onblur="buscarCEP()"> 
+            <input type="text" name="endereco" id="endereco" placeholder="Endereço"> 
+            <input type="text" name="bairro" id="bairro" placeholder="Bairro"> 
+            <input type="text" name="estado" id="estado" maxlength="2" required placeholder="Estado"> 
+            <input type="text" name="cidade" id="cidade" required placeholder="Cidade">  
+            <input type="date" name="data_nascimento" id="data_nascimento">  
             <button type="submit">Cadastrar</button>            
         </form>
 

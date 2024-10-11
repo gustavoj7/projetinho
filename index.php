@@ -2,14 +2,14 @@
 
 session_start();
 
-if (!isset($_SESSION['nome'])) {
+if (!isset($_SESSION['usuario_id'])) {
     header("location: login.php");
      exit;
 }
 
-echo"<h1>Logou com sucesso ".$_SESSION['nome']."</h1>";
-echo"<a href='logout.php'>Sair</a>";
-
+echo "Bem-vindo, " . $_SESSION['nome'] . "! <br>";
+echo '<a href="logout.php">Sair</a>';
+?>
 
 
 ?>
