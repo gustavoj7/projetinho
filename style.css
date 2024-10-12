@@ -9,6 +9,11 @@ body {
     height: 100vh;
 }
 
+header {
+    top: 0;
+    left: 0;    
+}
+
 .container {
     background-color: #2b2929;
     padding: 20px;
