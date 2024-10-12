@@ -28,10 +28,10 @@ $usuarios = $stmt->fetchAll();
 
 <body>
     <div class="container">
-        <h2>Bem vindo, <? $_SESSION['nome'] ?></h2>
-        <a href="logout.php">Logout</a>
+        <h2>Bem vindo,<?php echo $_SESSION['nome']; ?> </h2>
+        <a href="logout.php" id="logoutLink">Logout</a>
         <h3>Lista de Usuários</h3>
-        <a href="cadastro.php">Cadastrar novo usuário</a>
+        <a href="cadastro.php" id="cadastroLink">Cadastrar novo usuário</a>
 
         <table border="1">
             <tr>
@@ -52,15 +52,22 @@ $usuarios = $stmt->fetchAll();
                     <td><?= $nome ?></td>
                     <td><?= $email ?></td>
                     <td>
-                        <a href="editar.php?id=<?= $id ?>">Editar</a> |
-                        <a href="excluir.php?id=<?= $id ?>">Excluir</a>
+                        <a href="editar.php?id=<?= $id ?>" class="button-link">Editar</a> 
+                        <a href="excluir.php?id=<?= $id ?>" class="button-link">Excluir</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
 
 
         </table>
+                
     </div>
+
+    <script>
+        // Transformar os links de Logout e Cadastrar em botões
+        document.getElementById('logoutLink').classList.add('button-link');
+        document.getElementById('cadastroLink').classList.add('button-link');
+    </script>
 </body>
 
 </html>

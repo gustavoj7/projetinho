@@ -80,13 +80,13 @@ $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
     <div class="container">
         <h2>Editar Perfil</h2>
         <form method="POST" action="editar.php">
-            Nome: <input type="text" name="nome" value="<?= $usuario['nome'] ?>" required><br>
-            Data de Nascimento: <input type="date" name="data_nascimento" value="<?= $usuario['data_nascimento'] ?>" required><br>
-            CEP: <input type="text" name="cep" id="cep" value="<?= $usuario['cep'] ?>" onblur="buscarCEP()" required><br>
-            Endereço: <input type="text" name="endereco" id="endereco" value="<?= $usuario['endereco'] ?>" required><br>
-            Bairro: <input type="text" name="bairro" id="bairro" value="<?= $usuario['bairro'] ?>" required><br>
-            Cidade: <input type="text" name="cidade" value="<?= $usuario['cidade'] ?>" required><br>
-            Estado: <input type="text" name="estado" maxlength="2" value="<?= $usuario['estado'] ?>" required><br>
+            <h3>Nome:</h3><input type="text" name="nome" value="<?= $usuario['nome'] ?>" required><br>
+            <h3>Data de Nascimento:</h3> <input type="date" name="data_nascimento" value="<?= $usuario['data_nascimento'] ?>" required><br>
+            <h3>CEP:</h3> <input type="text" name="cep" id="cep" value="<?= $usuario['cep'] ?>" onblur="buscarCEP()" required><br>
+            <h3>Endereço:</h3> <input type="text" name="endereco" id="endereco" value="<?= $usuario['endereco'] ?>" required><br>
+            <h3>Bairro:</h3> <input type="text" name="bairro" id="bairro" value="<?= $usuario['bairro'] ?>" required><br>
+            <h3>Cidade:</h3> <input type="text" name="cidade" value="<?= $usuario['cidade'] ?>" required><br>
+            <h3>Estado:</h3> <input type="text" name="estado" maxlength="2" value="<?= $usuario['estado'] ?>" required><br>
             <button type="submit">Salvar</button>
         </form>
     </div>
