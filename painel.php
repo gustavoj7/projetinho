@@ -27,12 +27,10 @@ $usuarios = $stmt->fetchAll();
 </head>
 
 <body>
-
-        <header>
-            <a href="logout.php" id="logoutLink">Logout</a>
-
-        </header>
+    
    
+
+
     <div class="container">
         <header>
             <a href="logout.php" id="logoutLink">Logout</a>
@@ -41,7 +39,7 @@ $usuarios = $stmt->fetchAll();
         <h2>Bem vindo,<?php echo $_SESSION['nome']; ?> </h2>
         <h3>Lista de Usuários</h3>
         <a href="cadastro.php" id="cadastroLink">Cadastrar novo usuário</a>
-       
+
 
         <table border="1">
             <tr>
@@ -62,7 +60,7 @@ $usuarios = $stmt->fetchAll();
                     <td><?= $nome ?></td>
                     <td><?= $email ?></td>
                     <td>
-                        <a href="editar.php?id=<?= $id ?>" class="button-link">Editar</a> 
+                        <a href="editar.php?id=<?= $id ?>" class="button-link">Editar</a>
                         <a href="excluir.php?id=<?= $id ?>" class="button-link">Excluir</a>
                     </td>
                 </tr>
@@ -70,7 +68,7 @@ $usuarios = $stmt->fetchAll();
 
 
         </table>
-                
+
     </div>
 
     <script>

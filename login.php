@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: painel.php");
             exit;
         } else {
-            // echo "Credenciais inválidas!"; 
+            echo "<script>alert('Credenciais inválidas!');</script>";
         }
     } 
         
@@ -51,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Verifica se a senha tem pelo menos 6 caracteres
-        if (senha.length < 6) {
-            alert('A senha deve ter no mínimo 6 caracteres.');
+        if (senha.length < 4) {
+            alert('A senha deve ter no mínimo 4 caracteres.');
             e.preventDefault();
         }
     });
@@ -62,8 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <h2>Login</h2>
         <form action="login.php" method="POST">
-            <input type="email" name="email" id="email" placeholder="Email">
-            <input type="password" name="password" id="password" placeholder="Senha">
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Senha" required minlength="4">
             <button type="submit">Entrar</button>
         </form>
         <a href="cadastro.php">Não tem uma conta? Cadastre-se</a>

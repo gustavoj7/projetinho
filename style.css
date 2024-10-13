@@ -23,6 +23,12 @@ header {
     text-align: center;
 }
 
+header {
+    margin-left: 10px;
+    margin: 0;
+    align-items: left;
+}
+
 h2 {
     margin-bottom: 20px;
     font-size: 24px;
@@ -123,7 +129,8 @@ tr:hover {
     font-size: 14px;
     text-align: center;
 }
-
+/* 
 .button-link:hover {
     background-color: #0056b3;
-}
+} */
+
