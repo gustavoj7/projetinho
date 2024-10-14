@@ -1,6 +1,11 @@
 <?php
 require 'db.php';
 
+$erroCadastro = false; // Para avaliar o status de erro;
+$sucessoCadastro = false;
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 
@@ -31,10 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'estado' => $estado,
         
     ])) {
-        echo "Usuário cadastrado com sucesso!";
+        $sucessoCadastro = true;
         header("Location: login.php");
     } else {
-        echo "Erro ao cadastrar usuário!";
+        $erroCadastro = true;
     }
 
 }
@@ -68,6 +73,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     .catch(() => alert("Erro ao buscar o CEP!"));
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var erroCadastro = <?php echo json_encode($erroCadastro); ?>;
+            var sucessoCadastro = <?php echo json_encode($sucessoCadastro); ?>;
+
+            if (erroCadastro) {
+                alert('Erro ao cadastrar usuário!');  // Alerta de erro de cadastro
+            }
+
+            if (sucessoCadastro) {
+                alert('Usuário cadastrado com sucesso!');  // Alerta de sucesso
+            }
+        });
 </script>
 <body>
     <div class="container">

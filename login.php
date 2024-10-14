@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             e.preventDefault();
         }
 
-        // Verifica se a senha tem pelo menos 6 caracteres
+        // Verifica se a senha tem pelo menos 4 caracteres
         if (senha.length < 4) {
             alert('A senha deve ter no mínimo 4 caracteres.');
             e.preventDefault();

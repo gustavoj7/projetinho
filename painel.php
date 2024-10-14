@@ -32,13 +32,12 @@ $usuarios = $stmt->fetchAll();
 
 
     <div class="container">
-        <header>
-            <a href="logout.php" id="logoutLink">Logout</a>
-
-        </header>
+        
         <h2>Bem vindo,<?php echo $_SESSION['nome']; ?> </h2>
         <h3>Lista de Usuários</h3>
         <a href="cadastro.php" id="cadastroLink">Cadastrar novo usuário</a>
+        <a href="logout.php" id="logoutLink">Logout</a>
+
 
 
         <table border="1">
