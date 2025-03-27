@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $dbname   = 'sistema_login';
-$user = 'root';  // Usuário do MySQL (normalmente é "root")
-$password = '';      // Senha do MySQL (deixe vazio se não houver senha)
+$user = 'root';  // Usuário do MySQL 
+$password = '';      // Senha do MySQL (deixar vazio se não houver senha)
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 $options = [
